@@ -1,9 +1,11 @@
-const generateResponse = (req, res) => {
+const { generateResponse } = require("../services/generateService");
+
+const getResponse = async (req, res) => {
   const { prompt } = req.body;
 
-  console.log("prompt", prompt);
+  const result = await generateResponse(prompt);
 
-  res.send(prompt);
+  res.send(result);
 };
 
-module.exports = { generateResponse };
+module.exports = { getResponse };
