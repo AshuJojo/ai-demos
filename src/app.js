@@ -1,7 +1,7 @@
 // src/app.js
 const express = require("express");
 const cors = require("cors");
-// const routes = require("./routes"); // Import all routes
+const generateRoutes = require("./routes/generateRoutes"); // Import all routes
 
 const app = express();
 
@@ -12,9 +12,7 @@ app.use(cors()); // Enable CORS
 
 // Routes
 // app.use("/api", routes); // Mount API routes
-app.get('/', (req, res) => {
-  res.send('Hello World');
-})
+app.use('/generate', generateRoutes);
 
 
 module.exports = app; // Export app for testing and use in server.js
