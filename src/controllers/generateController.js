@@ -1,4 +1,7 @@
-const { generateSingleResponse } = require("../services/generateService");
+const {
+  generateSingleResponse,
+  generateStructuredResponse,
+} = require("../services/generateService");
 
 const getSingleResponse = async (req, res) => {
   const { prompt } = req.body;
@@ -8,4 +11,13 @@ const getSingleResponse = async (req, res) => {
   res.send(result);
 };
 
-module.exports = { getSingleResponse };
+const getStructuredResponse = async (req, res) => {
+  const { prompt } = req.body;
+
+  const result = await generateStructuredResponse(prompt);
+  
+  res.setHeader('Content-Type', 'application/json');
+  res.send(result);
+};
+
+module.exports = { getSingleResponse, getStructuredResponse };
