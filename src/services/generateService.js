@@ -1,9 +1,9 @@
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+const getModel = require("../utils/geminiUtils");
 
-const generateResponse = async (prompt) => {
+const generateSingleResponse = async (prompt) => {
   try {
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = getModel();
+
     if (!prompt) {
       return { error: "Prompt is required" };
     }
@@ -11,7 +11,6 @@ const generateResponse = async (prompt) => {
     const result = await model.generateContent(prompt);
     console.log(result.response.text());
 
-    console.log("result", result);
     return result.response.text();
   } catch (error) {
     console.error("Error generating response:", error);
@@ -19,4 +18,4 @@ const generateResponse = async (prompt) => {
   }
 };
 
-module.exports = { generateResponse };
+module.exports = { generateSingleResponse };

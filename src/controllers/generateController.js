@@ -1,11 +1,11 @@
-const { generateResponse } = require("../services/generateService");
+const { generateSingleResponse } = require("../services/generateService");
 
-const getResponse = async (req, res) => {
+const getSingleResponse = async (req, res) => {
   const { prompt } = req.body;
 
-  const result = await generateResponse(prompt);
+  const result = await generateSingleResponse(prompt);
 
   res.send(result);
 };
 
-module.exports = { getResponse };
+module.exports = { getSingleResponse };
