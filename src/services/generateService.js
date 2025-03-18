@@ -1,4 +1,4 @@
-const {getModel, getRecipesModel} = require("../utils/geminiUtils");
+const {getModel, getConvoIceBreakerModel} = require("../utils/geminiUtils");
 
 const generateSingleResponse = async (prompt) => {
   try {
@@ -19,13 +19,9 @@ const generateSingleResponse = async (prompt) => {
 
 const generateStructuredResponse = async (prompt) => {
   try {
-    const recipeModel = getRecipesModel();
+    const convoIceBreakerModel = getConvoIceBreakerModel();
 
-    if (!prompt) {
-      return { error: "Prompt is required" };
-    }
-
-    const result = await recipeModel.generateContent(prompt);
+    const result = await convoIceBreakerModel.generateContent(prompt);
 
     return result.response.text();
   } catch (error) {

@@ -9,20 +9,25 @@ const getModel = () => {
   return model;
 };
 
-const getRecipesModel = () => {
-  const recipeSchema = {
-    description: "List of recipes",
+const getConvoIceBreakerModel = () => {
+  const convoIceBreakerSchema = {
+    description: "List of ice breaker phrases",
     type: SchemaType.ARRAY,
     items: {
       type: SchemaType.OBJECT,
       properties: {
-        recipeName: {
+        antiAwkwardness: {
           type: SchemaType.STRING,
-          description: "Name of the recipe",
+          description: `Conversation ice breaker humours phrase that end the awkward silence between two. For example: “Uh-oh, we've hit the awkward silence zone. Let me save you both with a random fact: Did you know lobsters communicate by peeing at each other? You're welcome.”`,
+          nullable: false,
+        },
+        roastmaster: {
+          type: SchemaType.STRING,
+          description: `Roast other user with a humours ice breaker phrase. For example: “I see we've got two introverts trying to out-introvert each other. Should I just start talking to myself?”`,
           nullable: false,
         },
       },
-      required: ["recipeName"],
+      required: ["antiAwkwardness","roastmaster"],
     },
   };
 
@@ -30,11 +35,11 @@ const getRecipesModel = () => {
     model: MODEL_NAME,
     generationConfig: {
       responseMimeType: "application/json",
-      responseSchema: recipeSchema,
+      responseSchema: convoIceBreakerSchema,
     },
   });
 
   return model;
 };
 
-module.exports = {getModel, getRecipesModel};
+module.exports = {getModel, getConvoIceBreakerModel};

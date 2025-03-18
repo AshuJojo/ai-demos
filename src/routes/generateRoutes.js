@@ -6,6 +6,6 @@ const {
 } = require("../controllers/generateController");
 
 router.post("/", getSingleResponse);
-router.post("/recipe-json", getStructuredResponse);
+router.post("/convo-ice-breaker", getStructuredResponse);
 
 module.exports = router;
