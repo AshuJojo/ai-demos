@@ -11,7 +11,7 @@ const getModel = () => {
 
 const getConvoIceBreakerModel = () => {
   const convoIceBreakerSchema = {
-    description: "Ice breaker phrases according to user's current conversation.",
+    description: "Ice breaker phrases according to user's current conversation. ",
     type: SchemaType.OBJECT, 
     properties: {
       antiAwkwardness: {
@@ -21,7 +21,7 @@ const getConvoIceBreakerModel = () => {
       },
       roastmaster: {
         type: SchemaType.STRING, 
-        description: `Roast other user with a humours ice breaker phrase. For example: "I see we've got two introverts trying to out-introvert each other. Should I just start talking to myself?"`,
+        description: `Roast other user with a humours ice breaker phrase. You are talking with text, so only include pharses that make sense when you are talking with a person on text. For example: "I see we've got two introverts trying to out-introvert each other. Should I just start talking to myself?"`,
         nullable: false,
       },
       randomOutburst: {
