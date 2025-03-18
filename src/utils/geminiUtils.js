@@ -34,9 +34,14 @@ const getConvoIceBreakerModel = () => {
         description: `AI makes up completely fake but believable fun facts. For example: "Did you know that dolphins invented jazz music but gave up because humans kept stealing their beats?"`,
         nullable: false,
       },
+      unhelpfulLifeAdvice: {
+        type: SchemaType.STRING,
+        description: `AI drops completely useless yet oddly relatable wisdom. For example: "If at first you don't succeed… blame it on Mercury retrograde."`,
+        nullable: false,
+      },
     },
-    required: ["antiAwkwardness", "roastmaster", "randomOutburst", "totallyRealFake"],
-    propertyOrdering: ["antiAwkwardness", "roastmaster", "randomOutburst", "totallyRealFake"],
+    required: ["antiAwkwardness", "roastmaster", "randomOutburst", "totallyRealFake", "unhelpfulLifeAdvice"],
+    propertyOrdering: ["antiAwkwardness", "roastmaster", "randomOutburst", "totallyRealFake", "unhelpfulLifeAdvice"],
   };
 
   const model = genAI.getGenerativeModel({
